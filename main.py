@@ -1,10 +1,5 @@
 import  streamlit as st
 import streamlit.components.v1 as components
-import requests
-import cv2
-import numpy as np
-
-
 
 
 st.title("Составить оплату")
@@ -12,7 +7,11 @@ name = st.text_input("Название покупки")
 desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
-components.html(f"""
+components.html(
+
+
+
+    f"""
     <!DOCTYPE html>
         <html lang="en">
 
