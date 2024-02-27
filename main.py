@@ -1,9 +1,9 @@
 import  streamlit as st
-import cv2, numpy as np
+# import cv2, numpy as np
 
 st.write("Старт")
 image = st.camera_input("Сфокать")
-face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
+# face_cascade = cv2.CascadeClassifier('haarcascade_frontalface_default.xml')
 html_code = """
 <p>Что-то</p>
 <style>
