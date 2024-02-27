@@ -9,7 +9,7 @@ desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
 
-html_text = f"""<!DOCTYPE html>
+components.html(f"""<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -73,8 +73,7 @@ html_text = f"""<!DOCTYPE html>
    
 </div>
 </body>
-</html>"""
-components.html(html_text)
+</html>""")
 
 
 
