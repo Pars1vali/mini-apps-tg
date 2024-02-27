@@ -41,9 +41,7 @@ components.html(f"""
 
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
-    tg.MainButton.onClick(() => {{
-       {st.write("чтото")}
-    }}
+    
    </script>
    
 </div>
