@@ -7,7 +7,7 @@ name = st.text_input("Название покупки")
 desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
-components.html(f"""
+components.html("""
     <!DOCTYPE html>
         <html lang="en">
 
@@ -18,18 +18,18 @@ components.html(f"""
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    * {{
+    * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }}
+    }
     
-    body {{
+    body {
         font-family: 'Montserrat', sans-serif;
         font-weight: 200;
         color: var(--tg-theme-text-color);
         background: var(--tg-theme-bg-color);
-    }}
+    }
     </style>
     
 </head>
@@ -40,6 +40,10 @@ components.html(f"""
     
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
+    
+    tg.MainButton.onClick(() => {
+        tg.showAlert("ff");
+    }
    </script>
 
 </body>
