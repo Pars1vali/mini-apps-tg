@@ -9,8 +9,10 @@ desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
 st.write("changes")
-components.html(f"""<!DOCTYPE html>
-<html lang="en">
+components.html(
+    f"""
+    <!DOCTYPE html>
+        <html lang="en">
 
 <head>
     <script src="https://telegram.org/js/telegram-web-app.js">
@@ -50,12 +52,12 @@ components.html(f"""<!DOCTYPE html>
             return;
         }}
         var data = JSON.stringify(
-            {
+            {{
                 "name": {name},
                 "desciption": {currency},
                 "payload": {payload},
                 "currency": {currency}
-            }
+            }}
         );
         console.log("start");
         var xhr = new XMLHttpRequest();
@@ -73,7 +75,8 @@ components.html(f"""<!DOCTYPE html>
    
 </div>
 </body>
-</html>""")
+</html>
+""")
 
 
 
