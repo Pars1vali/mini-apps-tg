@@ -44,6 +44,18 @@ components.html("""
     tg.MainButton.onClick(() => {
         tg.showAlert("ff");
     }
+    
+    const sendDataToTelegram = () => {
+        window.Telegram.WebApp.sendData("selectedRegions");
+    }
+
+      useEffect(() => {
+        window.Telegram.WebApp.onEvent('mainButtonClicked', sendDataToTelegram)
+        return () => {
+          window.Telegram.WebApp.offEvent('mainButtonClicked', sendDataToTelegram)
+        }
+      }, [sendDataToTelegram])
+    
    </script>
 
 </body>
