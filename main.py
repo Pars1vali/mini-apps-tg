@@ -36,9 +36,12 @@ components.html(f"""
 </head>
 <body>
    <script>
+   
    const tg = window.Telegram.WebApp;
+   
     let url = 'https://d5dip6pritbe7tmoain3.apigw.yandexcloud.net/aibot';
     
+        tg.showAlert("Тест");
 
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
