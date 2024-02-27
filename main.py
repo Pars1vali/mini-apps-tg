@@ -43,28 +43,7 @@ components.html(f"""
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
     tg.MainButton.onClick(() => {{
-        if({name} && {currency} && {payload} && {currency}){{
-            tg.showAlert("Заполните все обязательные поля.");
-            return;
-        }}
-        var data = JSON.stringify(
-            {{
-                "name": {name},
-                "description": {currency},
-                "payload": {payload},
-                "currency": {currency}
-            }}
-        );
-        var xhr = new XMLHttpRequest();
-        xhr.open("POST", url, true);
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.setRequestHeader("X-Custom-Info", "getOpenInvoiceUrl");
-        xhr.onreadystatechange = function () {{
-            if (xhr.readyState === 4 && xhr.status === 200) {{
-                tg.openInvoice(xhr.responseText);
-            }}
-        }};
-        xhr.send(data);
+        tg.showAlert("Тест");
     }});
    </script>
    
