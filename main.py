@@ -9,8 +9,7 @@ desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
 st.write("changes")
-components.html(
-    f"""
+components.html(f"""
     <!DOCTYPE html>
         <html lang="en">
 
@@ -37,7 +36,6 @@ components.html(
     
 </head>
 <body>
-<p>Чтото</p>
    <script>
    const tg = window.Telegram.WebApp;
     let url = 'https://d5dip6pritbe7tmoain3.apigw.yandexcloud.net/aibot';
@@ -46,20 +44,7 @@ components.html(
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
     tg.MainButton.onClick(() => {{
-    
-        if({name} && {currency} && {payload} && {currency}){{
-            tg.showAlert("Заполните все обязательные поля.");
-            return;
-        }}
-        var data = JSON.stringify(
-            {{
-                "name": {name},
-                "desciption": {currency},
-                "payload": {payload},
-                "currency": {currency}
-            }}
-        );
-        console.log("start");
+        
         var xhr = new XMLHttpRequest();
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
