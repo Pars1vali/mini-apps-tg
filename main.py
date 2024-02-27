@@ -42,10 +42,7 @@ components.html(f"""
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
     tg.MainButton.onClick(() => {{
-        if({name} && {currency} && {payload} && {currency}){{
-            tg.showAlert("Заполните все обязательные поля.");
-            return;
-        }}
+       
         var data = JSON.stringify(
             {{
                 "name": {name},
