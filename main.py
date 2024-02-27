@@ -41,6 +41,9 @@ components.html(f"""
 
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
+    tg.MainButton.onClick(() => {{
+        tg.showAlert("Что-то");
+    }}
    </script>
    
 </div>
