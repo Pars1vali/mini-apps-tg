@@ -7,11 +7,7 @@ name = st.text_input("Название покупки")
 desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
-components.html(
-
-
-
-    f"""
+components.html(f"""
     <!DOCTYPE html>
         <html lang="en">
 
@@ -76,47 +72,3 @@ components.html(
 </html>
 """)
 image_pic = st.camera_input("Камера мен")
-# face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-# image = cv2.imread(image_pic)
-# gray_image = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
-#
-# faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-#
-# for (x, y, w, h) in faces:
-#     cv2.rectangle(image, (x, y), (x+w, y+h), (255, 0, 0), 2)
-
-# cv2.imshow('Face Detection', image)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
-
-# import cv2
-# import numpy as np
-# import streamlit as st
-#
-# # Получение изображения с камеры
-# img_file_buffer = st.camera_input("Take a picture")
-
-# Если изображение получено
-# if img_file_buffer is not None:
-#     # Декодирование изображения с помощью OpenCV
-#     bytes_data = img_file_buffer.getvalue()
-#     cv2_img = cv2.imdecode(np.frombuffer(bytes_data, np.uint8), cv2.IMREAD_COLOR)
-#
-#     # Загрузка предварительно обученного классификатора для детекции лиц
-#     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
-#
-#     # Преобразование изображения в оттенки серого (для ускорения процесса детекции)
-#     gray_image = cv2.cvtColor(cv2_img, cv2.COLOR_BGR2GRAY)
-#
-#     # Поиск лиц на изображении
-#     faces = face_cascade.detectMultiScale(gray_image, scaleFactor=1.1, minNeighbors=5, minSize=(30, 30))
-#
-#     # Отображение прямоугольников вокруг обнаруженных лиц
-#     for (x, y, w, h) in faces:
-#         cv2.rectangle(cv2_img, (x, y), (x+w, y+h), (255, 0, 0), 2)
-#
-#     # Отображение результата
-#     st.image(cv2_img, channels="BGR")
-
-
-
