@@ -36,17 +36,35 @@ components.html(f"""
 </head>
 <body>
    <script>
-   
    const tg = window.Telegram.WebApp;
-   
     let url = 'https://d5dip6pritbe7tmoain3.apigw.yandexcloud.net/aibot';
     
-        tg.showAlert("Тест");
 
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
     tg.MainButton.onClick(() => {{
-        tg.showAlert("Тест");
+        if({name} && {currency} && {payload} && {currency}){{
+            tg.showAlert("Заполните все обязательные поля.");
+            return;
+        }}
+        var data = JSON.stringify(
+            {{
+                "name": {name},
+                "description": {currency},
+                "payload": {payload},
+                "currency": {currency}
+            }}
+        );
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+        xhr.setRequestHeader("X-Custom-Info", "getOpenInvoiceUrl");
+        xhr.onreadystatechange = function () {{
+            if (xhr.readyState === 4 && xhr.status === 200) {{
+                tg.openInvoice(xhr.responseText);
+            }}
+        }};
+        xhr.send(data);
     }});
    </script>
    
@@ -54,6 +72,7 @@ components.html(f"""
 </body>
 </html>
 """)
+st.camera_input("Камера мен")
 
 
 
