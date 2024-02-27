@@ -9,7 +9,7 @@ desciption = st.text_input("Описаниие")
 payload = st.text_input("Долнительные парметры")
 currency = st.selectbox("Валюта", options=["rub","usd"])
 
-components.html("""<!DOCTYPE html>
+html_text = f"""<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -19,43 +19,42 @@ components.html("""<!DOCTYPE html>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-    * {
+    * {{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    }
+    }}
     
-    body {
+    body {{
         font-family: 'Montserrat', sans-serif;
         font-weight: 200;
         color: var(--tg-theme-text-color);
         background: var(--tg-theme-bg-color);
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        cursor: none;
-        /* скрываем обычный курсор */
-    }
+    }}
     </style>
     
 </head>
 <body>
-   <p>Что-то есть</p>
+<p>Чтото</p>
    <script>
    const tg = window.Telegram.WebApp;
     let url = 'https://d5dip6pritbe7tmoain3.apigw.yandexcloud.net/aibot';
-
+    
 
     tg.MainButton.show();
     tg.MainButton.setText("Оплатить");
-    tg.MainButton.onClick(() => {
+    tg.MainButton.onClick(() => {{
+    
+        if({name} && {currency} && {payload} && {currency}){{
+            tg.showAlert("Заполните все обязательные поля.");
+            return;
+        }}
         var data = JSON.stringify(
             {
-                "name": "name",
-                "desciption": "desciption",
-                "payload": "payload",
-                "currency": "currency",
-                "cost": "cost"
+                "name": {name},
+                "desciption": {currency},
+                "payload": {payload},
+                "currency": {currency}
             }
         );
         console.log("start");
@@ -63,18 +62,20 @@ components.html("""<!DOCTYPE html>
         xhr.open("POST", url, true);
         xhr.setRequestHeader("Content-Type", "application/json");
         xhr.setRequestHeader("X-Custom-Info", "getOpenInvoiceUrl");
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState === 4 && xhr.status === 200) {
+        xhr.onreadystatechange = function () {{
+            if (xhr.readyState === 4 && xhr.status === 200) {{
                 tg.openInvoice(xhr.responseText);
-            }
-        };
+            }}
+        }};
         xhr.send(data);
-    });
+    }});
    </script>
    
 </div>
 </body>
-</html>""")
+</html>"""
+components.html(html_text)
+
 
 
 
