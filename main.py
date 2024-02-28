@@ -26,7 +26,7 @@ html("""
         document.getElementById("myButton").addEventListener("click", function() {
           alert("Вы нажали кнопку!");
           tg.showAlert("Реально нажали");
-          showPopup("ff);
+          tg.showPopup("ff);
         });
         
         const tg = window.Telegram.WebApp;
