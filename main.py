@@ -25,6 +25,7 @@ html("""
     <script>
         document.getElementById("myButton").addEventListener("click", function() {
           alert("Вы нажали кнопку!");
+          showPopup();
         });
         
         
@@ -43,6 +44,21 @@ html("""
             Telegram.WebApp.showAlert('Main Button was clicked')
         });	
         Telegram.WebApp.MainButton.show();
+        
+        function showPopup() {
+            Telegram.WebApp.showPopup({
+                title: 'Title',
+                message: 'Some message',
+                buttons: [
+                    {id: 'link', type: 'default', text: 'Open ton.org'},
+                    {type: 'cancel'},
+                ]
+            }, function(btn) {
+                if (btn === 'link') {
+                    Telegram.WebApp.openLink('https://ton.org/');
+                }
+            });
+        };
         
         
         
