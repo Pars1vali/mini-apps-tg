@@ -1,30 +1,34 @@
 import streamlit as st
 from streamlit.components.v1 import html
-from streamlit_javascript import st_javascript
 
-# # Define your javascript
-# my_js = """
-# alert("Hola mundo");
-# const tg = window.Telegram.WebApp;
-# tg.showAlert("Hola!");
-# """
-#
-# # Wrapt the javascript as html code
-# my_html = f"<script src=\"tf.js\"></script><script>{my_js}</script>"
+html("""
+<!DOCTYPE html>
+<html lang="en">
 
-# Execute your app
+<head>
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 200;
+            color: var(--tg-theme-text-color);
+            background: var(--tg-theme-bg-color);
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+<p>Что-то</p>
+    <script>
+        alert("Hola mundo");
+        const tg = window.Telegram.WebApp;
+        tg.MainButton.setText("Оплатить");
+        tg.MainButton.show();
+    </script>
+</div>
+</body>
+</html>
+""")
 
-
-st.subheader("Javascript API call")
-
-return_value = st_javascript("""
-const telegramWebApp = require('https://telegram.org/js/telegram-web-app.js');
-telegramWebApp.showAlert("d");
-}) """)
-
-st.markdown(f"Return value was: {return_value}")
-print(f"Return value was: {return_value}")
-
-
-st.title("Javascript example")
-# html(my_html)
