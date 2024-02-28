@@ -25,17 +25,26 @@ html("""
     <script>
         document.getElementById("myButton").addEventListener("click", function() {
           alert("Вы нажали кнопку!");
-          tg.showAlert("Реально нажали");
-          tg.showPopup("ff);
         });
         
-        const tg = window.Telegram.WebApp;
-        tg.MainButton.setText("Оплатить");
-        tg.MainButton.show();
         
-        tg.MainButton.onClick(() => {
-            alert("Вы нажали кнопку tg!");
+        Telegram.WebApp.ready();
+
+        // Event occurs whenever theme settings are changed in the user's Telegram app (including switching to night mode).
+        Telegram.WebApp.onEvent('themeChanged', function() {
+            document.documentElement.className = Telegram.WebApp.colorScheme;
         });
+
+        // Show main button
+        Telegram.WebApp.MainButton.setParams({
+            text: 'Main Button'
+        });
+        Telegram.WebApp.MainButton.onClick(function () {
+            Telegram.WebApp.showAlert('Main Button was clicked')
+        });	
+        
+        
+        
     </script>
 </div>
 </body>
