@@ -3,7 +3,7 @@ import os
 from numpy import void
 import streamlit as st
 import asyncio
-# https://frankie567.github.io/httpx-oauth/oauth2/
+import httpx_oauth
 from httpx_oauth.clients.google import GoogleOAuth2
 # from dotenv import load_dotenv
 #
@@ -40,7 +40,7 @@ def get_login_str():
 def display_user() -> void:
     client: GoogleOAuth2 = GoogleOAuth2(CLIENT_ID, CLIENT_SECRET)
     # get the code from the url
-    code = st.experimental_get_query_params()['code']
+    code = st.query_params()['code']
     token = asyncio.run(get_access_token(
         client, REDIRECT_URI, code))
     user_id, user_email = asyncio.run(
