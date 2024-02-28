@@ -1,7 +1,6 @@
 import streamlit as st
-from auth import *
+from streamlit.components.v1 import html, iframe
+import numpy as np
 
-st.camera_input("Сделай фотку")
-st.page_link(get_login_str(), label="Войти в Google аккаунт")
-if st.button("display user"):
-    display_user()
+image = st.camera_input("Сделай фотку")
+
