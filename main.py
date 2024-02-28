@@ -24,7 +24,7 @@ html("""
 <button id="myButton">Нажми меня</button>
     <script>
         document.getElementById("myButton").addEventListener("click", function() {
-          //alert("Вы нажали кнопку!");
+          alert("Вы нажали кнопку!");
           tg.showAlert("Реально нажали");
         });
         const tg = window.Telegram.WebApp;
