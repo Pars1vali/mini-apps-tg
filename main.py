@@ -2,8 +2,8 @@ import streamlit as st
 from streamlit.components.v1 import html, iframe
 import requests, json
 from streamlit_qrcode_scanner import qrcode_scanner
-from qreader import QReader
-from PIL import Image
+# from qreader import QReader
+# from PIL import Image
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
@@ -24,10 +24,10 @@ qr = st.toggle("Промокод/QR-код")
 
 if qr:
     image = st.camera_input("Сфоткай QR код")
-    if image is not None:
-        qreader = QReader()
-        decoded_text = qreader.detect_and_decode(image=Image.open(image))
-        st.write(decoded_text)
+    # if image is not None:
+    #     qreader = QReader()
+    #     decoded_text = qreader.detect_and_decode(image=Image.open(image))
+    #     st.write(decoded_text)
 else:
     promo_code = st.text_input("Промокод")
     send_btn = st.button("Проверить промокод")
