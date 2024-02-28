@@ -2,6 +2,7 @@ import streamlit as st
 from streamlit.components.v1 import html, iframe
 import requests, json
 from streamlit_qrcode_scanner import qrcode_scanner
+from qreader import QReader
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)

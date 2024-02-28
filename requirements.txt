@@ -1,3 +1,4 @@
 streamlit~=1.31.1
 httpx-oauth==0.13.2
 streamlit_qrcode_scanner==0.1.2
+qreader==3.12
