@@ -21,8 +21,12 @@ html("""
 </head>
 <body>
 <p>Что-то</p>
+<button id="myButton">Нажми меня</button>
     <script>
         alert("Hola mundo");
+        document.getElementById("myButton").addEventListener("click", function() {
+          alert("Вы нажали кнопку!");
+        });
         const tg = window.Telegram.WebApp;
         tg.MainButton.setText("Оплатить");
         tg.MainButton.show();
