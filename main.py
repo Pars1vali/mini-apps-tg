@@ -1,6 +1,10 @@
 import streamlit as st
 import requests, json
 from streamlit.components.v1 import html
+from pyzbar.pyzbar import decode
+from PIL import Image
+
+
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
@@ -21,12 +25,11 @@ qr = st.toggle("Промокод/QR-код")
 
 if qr:
     image = st.camera_input("Сфоткай QR код")
-    html("""
-    <script>alert("f");</script>""")
-    # if image is not None:
-    #     qreader = QReader()
-    #     decoded_text = qreader.detect_and_decode(image=Image.open(image))
-    #     st.write(decoded_text)
+    html("""<script>alert("f");</script>""")
+
+    if image is not None:
+        decocdeQR = decode(Image.open(image))
+        st.write(decocdeQR[0].data.decode('ascii'))
 else:
     promo_code = st.text_input("Промокод")
     send_btn = st.button("Проверить промокод")
