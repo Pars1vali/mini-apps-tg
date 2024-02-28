@@ -1,6 +1,7 @@
 import streamlit as st
 from streamlit.components.v1 import html, iframe
 import requests, json
+from streamlit_qrcode_scanner import qrcode_scanner
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
@@ -21,6 +22,10 @@ qr = st.toggle("Промокод/QR-код")
 
 if qr:
     image = st.camera_input("Сфоткай QR код")
+    qr_code = qrcode_scanner(key='qrcode_scanner')
+
+    if qr_code:
+        st.write(qr_code)
 else:
     promo_code = st.text_input("Промокод")
     send_btn = st.button("Проверить промокод")
