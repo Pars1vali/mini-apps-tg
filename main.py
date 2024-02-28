@@ -5,8 +5,7 @@ from streamlit.components.v1 import html
 my_js = """
 alert("Hola mundo");
 const tg = window.Telegram.WebApp;
-tg.MainButton.show();
-tg.MainButton.setText("Оплатить");
+tg.showAlert("Hola!);
 """
 
 # Wrapt the javascript as html code
