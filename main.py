@@ -1,14 +1,13 @@
 import streamlit as st
 import requests, json
 from streamlit.components.v1 import html
-from pyzbar.pyzbar import decode
-from PIL import Image
-
-
+# from pyzbar.pyzbar import decode
+# # from PIL import Image
+# pyzbar==0.1.9
+# pillow==10.2.0
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
-
 
 def send(promo_code):
     url = "https://d5dip6pritbe7tmoain3.apigw.yandexcloud.net/aibot"
@@ -28,8 +27,9 @@ if qr:
     html("""<script>alert("f");</script>""")
 
     if image is not None:
-        decocdeQR = decode(Image.open(image))
-        st.write(decocdeQR[0].data.decode('ascii'))
+        # decocdeQR = decode(Image.open(image))
+        # st.write(decocdeQR[0].data.decode('ascii'))
+        st.write("dd")
 else:
     promo_code = st.text_input("Промокод")
     send_btn = st.button("Проверить промокод")
