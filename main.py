@@ -42,6 +42,7 @@ html("""
         Telegram.WebApp.MainButton.onClick(function () {
             Telegram.WebApp.showAlert('Main Button was clicked')
         });	
+        Telegram.WebApp.MainButton.show();
         
         
         
