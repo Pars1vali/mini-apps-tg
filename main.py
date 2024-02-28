@@ -275,7 +275,7 @@ html("""<!DOCTYPE html>
     });
 
     function toggleMainButton(el) {
-        webviewClose();
+        Telegram.WebApp.showAlert("ff");
         const mainButton = Telegram.WebApp.MainButton;
         if (mainButton.isVisible) {
             mainButton.hide();
