@@ -1,5 +1,6 @@
 import streamlit as st
 from streamlit.components.v1 import html
+from streamlit_javascript import st_javascript
 
 # # Define your javascript
 # my_js = """
@@ -12,9 +13,18 @@ from streamlit.components.v1 import html
 # my_html = f"<script src=\"tf.js\"></script><script>{my_js}</script>"
 
 # Execute your app
+
+
+st.subheader("Javascript API call")
+
+return_value = st_javascript("""
+const telegramWebApp = require('https://telegram.org/js/telegram-web-app.js');
+telegramWebApp.showAlert("d");
+}) """)
+
+st.markdown(f"Return value was: {return_value}")
+print(f"Return value was: {return_value}")
+
+
 st.title("Javascript example")
 # html(my_html)
-
-from static import mycomponent
-value = mycomponent()
-st.write("Received", value)
