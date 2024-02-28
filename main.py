@@ -274,7 +274,8 @@ html("""<!DOCTYPE html>
         document.querySelector('#viewport').innerHTML = `${window.innerWidth} x ${Telegram.WebApp.viewportHeight.toFixed(2)}`;
     });
 
-    async function toggleMainButton(el) {
+    function toggleMainButton(el) {
+        showAlert("Кнопка");    
         const mainButton = Telegram.WebApp.MainButton;
         if (mainButton.isVisible) {
             mainButton.hide();
@@ -287,6 +288,10 @@ html("""<!DOCTYPE html>
 
     function webviewExpand() {
         Telegram.WebApp.expand();
+    }
+    
+    function showAlert(message) {
+        Telegram.WebApp.showAlert(message);
     }
 
     function webviewClose() {
