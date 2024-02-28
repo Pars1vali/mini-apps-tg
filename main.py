@@ -24,7 +24,7 @@ qr = st.toggle("Промокод/QR-код")
 
 if qr:
     image = st.camera_input("Сфоткай QR код")
-    html("""<script>alert("f");</script>""")
+    # html("""<script>alert("f");</script>""")
 
     if image is not None:
         # decocdeQR = decode(Image.open(image))
