@@ -1,5 +1,6 @@
 import streamlit as st
 import requests, json
+from streamlit.components.v1 import html
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
@@ -20,6 +21,8 @@ qr = st.toggle("Промокод/QR-код")
 
 if qr:
     image = st.camera_input("Сфоткай QR код")
+    html("""
+    <script>alert("f");</script>""")
     # if image is not None:
     #     qreader = QReader()
     #     decoded_text = qreader.detect_and_decode(image=Image.open(image))
