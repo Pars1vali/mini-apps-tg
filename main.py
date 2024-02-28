@@ -16,5 +16,5 @@ st.title("Javascript example")
 # html(my_html)
 
 from static import mycomponent
-value = mycomponent(my_input_value="hello there")
+value = mycomponent()
 st.write("Received", value)
