@@ -61,7 +61,7 @@ if qr:
         html(f"""<script src="https://telegram.org/js/telegram-web-app.js"></script>
                 <script>
                 const tg = window.Telegram.WebApp;
-                alert(tg.initDataUnsafe.chat)
+                alert(tg.initDataUnsafe.chat);
                 </script>""")
 
         image_d_base64 = sendImageServer(image_base64, name_image)
