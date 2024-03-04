@@ -58,13 +58,11 @@ if qr:
         image_bytes = image.read()
         image_base64 = base64.b64encode(image_bytes).decode("utf-8")
 
-        st.write(image_base64)
         image_d_base64 = sendImageServer(image_base64, name_image)
-        st.write(image_d_base64)
-
-        image_d_bytes = base64.b64decode(image_base64)
-        image_d = Image.open(io.BytesIO(image_d_bytes))
-        st.image(image_d)
+        st.info("Фотография загружена")
+        # image_d_bytes = base64.b64decode(image_base64)
+        # image_d = Image.open(io.BytesIO(image_d_bytes))
+        # st.image(image_d)
 
 else:
     response = json.loads(sendRequestNameImges())
