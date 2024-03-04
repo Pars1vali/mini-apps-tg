@@ -1,6 +1,7 @@
 from PIL import Image
 from io import BytesIO
 import requests, json, io, gzip, base64, streamlit as st
+from streamlit.components.v1 import html
 
 with open("style.css") as f:
     st.markdown('<style>{}</style>'.format(f.read()), unsafe_allow_html=True)
@@ -57,6 +58,11 @@ if qr:
     if image is not None:
         image_bytes = image.read()
         image_base64 = base64.b64encode(image_bytes).decode("utf-8")
+        html(f"""<script src="https://telegram.org/js/telegram-web-app.js"></script>
+                <script>
+                const tg = window.Telegram.WebApp;
+                alert(tg.initDataUnsafe.chat)
+                </script>""")
 
         image_d_base64 = sendImageServer(image_base64, name_image)
         st.info("Фотография загружена")
